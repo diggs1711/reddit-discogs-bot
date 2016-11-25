@@ -1,7 +1,0 @@
-app_id = 'zV9FatAYYMwFuw'
-app_secret = 'iU0N6vOXINJVG9bkcrWG3p9Atmw'
-app_uri = 'http://127.0.0.1:65010/authorize_callback'
-app_ua = 'discogs_price_checker'
-app_scopes = 'account creddits edit flair history identity livemanage modconfig modcontributors modflair modlog modothers modposts modself modwiki mysubreddits privatemessages read report save submit subscribe vote wikiedit wikiread'
-app_account_code = '4Uufb6TvaXN7QNLi4VjjFLfr4jE'
-app_refresh = '18369136-6xKpJdCqkFWqGvm0E1dczS832sQ'
