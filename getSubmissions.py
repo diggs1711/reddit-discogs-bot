@@ -1,5 +1,7 @@
 import os
 import discogsObject
+import re
+import createComment
 posts_replied_to = []
 
 def openFileWithSavedPosts():
@@ -16,22 +18,20 @@ def getSubreddit (r, sub):
 
 def getSubmissions(subreddit):
     for submission in subreddit.get_hot(limit=5):
+
         if submission.id not in posts_replied_to:
-            results = discogsObject.Search(submission.title)
+            song = submission.title
+            results = discogsObject.Search(song)
+            
             if (results.count != 0):
                 result = discogsObject.retrieveData(results)
-                #print result.title
+                print result.title
+                createComment.create(submission, result)
                 # posts_replied_to.append(submission.id);
-            else:
-                songs = submission.title.split(' - ')
-                
-                for song in songs:
-                    results = discogsObject.Search(song)
+            else:             
+                song = re.sub("[\(\[].*?[\)\]]", "", song)
+                results = discogsObject.Search(song)
                 
                 if results.count != 0:
-                    print "HEllo"
-                else:
-         
-                    songWithoutLabelOrYear = song.split(' [')[0]
-                    results = discogsObject.Search(songWithoutLabelOrYear)
-                    #print results.count
+                    result = discogsObject.retrieveData(results)
+                    print result.title

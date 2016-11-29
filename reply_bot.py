@@ -4,10 +4,12 @@ import re
 import discogs_auth
 import getSubmissions as red
 
+test = 'testmyappdiscogslink'
+sub = 'truehouse'
 data = {}
 r = botSetup.login()
 red.openFileWithSavedPosts()
-subreddit = red.getSubreddit(r, 'truehouse')
+subreddit = red.getSubreddit(r, test)
 red.getSubmissions(subreddit)
 
 
