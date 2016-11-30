@@ -20,7 +20,7 @@ def create(submission, result):
                      
     try:
         print "Adding comment to " + submission.title
-        submission.add_comment(comment)
+        #submission.add_comment(comment)
     except:
         print "Error: ", sys.exc_info()[0]
     

@@ -5,7 +5,7 @@ import comment
 
 posts_replied_to = []
 
-def openFileWithSavedPosts():
+def openFileWithSavedPostIds():
     if not os.path.isfile("posts_replied_to.txt"):
         global posts_replied_to
         posts_replied_to = []
@@ -19,7 +19,7 @@ def getSubreddit (r, sub):
     return r.get_subreddit(sub)
 
 def getSubmissions(subreddit):
-    openFileWithSavedPosts()
+    openFileWithSavedPostIds()
     for submission in subreddit.get_hot(limit=5):
         if submission.id not in posts_replied_to:
             song = submission.title
