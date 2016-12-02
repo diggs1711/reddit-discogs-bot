@@ -3,14 +3,15 @@ import discogs
 import re
 import comment
 
+POSTS = "posts_replied_to.txt"
 posts_replied_to = []
 
 def openFileWithSavedPostIds():
-    if not os.path.isfile("posts_replied_to.txt"):
+    if not os.path.isfile(POSTS):
         global posts_replied_to
         posts_replied_to = []
     else:
-        with open("posts_replied_to.txt", "r") as f:
+        with open(POSTS, "r") as f:
             posts_replied_to = f.read()
             posts_replied_to = posts_replied_to.split("\n")
             posts_replied_to = filter(None, posts_replied_to)
